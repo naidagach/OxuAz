@@ -12,26 +12,28 @@
 <body>
   <main class="mx-auto text-center p-[100px]">
     <button onclick="handleModal()" class="bg-[#16ad56] text-white border-md p-2 w-[200px] rounded-md" >Xəbər yərləşdir</button>
-    <div id="modal" class="fixed inset-0 top-[10%] bottom-[5%] flex flex-col items-start max-w-md gap-2 p-6 rounded-md shadow-md bg-[#f9fafbf2] dark:text-gray-800 mx-auto hidden">
-      <h2 class="text-2xl font-bold w-full">
-        Xəbəri yərləşdir
-      </h2>
-      <i onclick="handleModal()" class="fa-solid fa-xmark absolute text-2xl right-[15px] top-[25px]"></i>
-      <p class="font-semibold">Başlıq əlavə et:</p>
-      <input id="inp1" class="border border-[#ddd] rounded-md w-full" type="text" />
-      <p class="font-semibold">Mətn əlavə et:</p>
-      <textarea id="inp2" class="border border-[#ddd] rounded-md w-full" cols="30" rows="8"></textarea>
-      <p class="font-semibold">Şəkil əlavə et:</p>
-      <input id="inp3" class="border border-[#ddd] rounded-md w-full" type="text" />
-      <p class="font-semibold">Tarix əlavə et:</p>
-      <input id="inp4" class="border border-[#ddd] rounded-md w-full" type="date" />
-      <p class="font-semibold">Baxış sayı:</p>
-      <input id="inp5" class="border border-[#ddd] rounded-md w-full" type="text" />
-      <button onclick="xeberiElaveEt()" class="bg-[#16ad56] text-white border-md p-2 w-[200px] mx-auto rounded-md" >Yüklə</button>
+    <div id="modal" onclick="handleModal()" class="fixed bg-[#000000c8] inset-0 flex justify-center items-center gap-2 dark:text-gray-800 mx-auto hidden">
+      <div onclick="event.stopPropagation()" class="bg-[#f9fafbf2] top-[10%] bottom-[5%] rounded-md shadow-md p-6">
+        <h2 class="text-2xl font-bold w-full relative">
+          Xəbəri yərləşdir
+          <i onclick="handleModal()" class="fa-solid fa-xmark absolute text-2xl right-[15px]"></i>
+        </h2>
+        <p class="font-semibold">Başlıq əlavə et:</p>
+        <input id="inp1" class="border border-[#ddd] rounded-md w-full" type="text" />
+        <p class="font-semibold">Mətn əlavə et:</p>
+        <textarea id="inp2" class="border border-[#ddd] rounded-md w-full" cols="30" rows="8"></textarea>
+        <p class="font-semibold">Şəkil əlavə et:</p>
+        <input id="inp3" class="border border-[#ddd] rounded-md w-full" type="text" />
+        <p class="font-semibold">Tarix əlavə et:</p>
+        <input id="inp4" class="border border-[#ddd] rounded-md w-full" type="date" />
+        <p class="font-semibold">Baxış sayı:</p>
+        <input id="inp5" class="border border-[#ddd] rounded-md w-full" type="number" />
+        <button id="btn" onclick="xeberiElaveEt()" class="bg-[#16ad56] mt-[10px] text-white border-md p-2 w-[200px] mx-auto rounded-md" >Yüklə</button>
+      </div>
     </div>
     
     <h1 class="text-[30px] font-bold p-[30px]">Xəbərlər</h1>
-    <table class="max-w-[1200px] w-[100%] mx-auto p-2">
+    <table class="w-[100%] mx-auto p-2">
       <thead>
         <tr class="bg-[#d7dbdf] font-bold p-4 h-[70px]">
           <th>Şəkil</th>
@@ -40,6 +42,7 @@
           <th>Tarix</th>
           <th>Baxış sayı</th>
           <th>Sil</th>
+          <th>Duzəliş et</th>
         </tr>
       </thead>
       <tbody id="xeberler">
@@ -47,9 +50,6 @@
       </tbody>
       
     </table>
-    <div id="modal">
-      
-    </div>
   </main>
   <script src="../js/admin.js"></script>
 </body>
