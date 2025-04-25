@@ -1,3 +1,23 @@
+function verify() {
+  const token = localStorage.getItem('token')
+  const status = localStorage.getItem('status')
+
+  if(!token || !status) {
+    location.href('/auth/login.htm')
+  } else{
+    fetch('https://neptunbk.vercel.app/auth/verify-token', {
+      headers: {
+        'Authorization' : `Bearer ${token}`
+      }
+    })
+    .then(res => res.json())
+    .then(info => {
+      console.log(info);
+    })
+  }
+}
+verify()
+
 const modal = document.getElementById('modal')
 const xeberler = document.getElementById('xeberler')
 const titleInp = document.getElementById('inp1')
