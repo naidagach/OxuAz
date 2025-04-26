@@ -3,7 +3,7 @@ function verify() {
   const status = localStorage.getItem('status')
 
   if(!token || !status) {
-    location.href('/auth/login.htm')
+    location.href = '/auth/login.htm'
   } else{
     fetch('https://neptunbk.vercel.app/auth/verify-token', {
       headers: {
