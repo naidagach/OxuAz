@@ -7,12 +7,22 @@
   <link rel="stylesheet" href="../src/input.css" />
   <link rel="stylesheet" href="../src/output.css" />
   <link rel="stylesheet" href="../src/style.css" />
-  <title>Document</title>
+  <title>Oxu Az Admin panel</title>
 </head>
 <body>
+  <header class="p-4 dark:bg-gray-100 dark:text-gray-800">
+    <div class="container flex justify-between h-16 mx-auto">
+      <a href="../index.htm" class="flex items-center p-2">
+        <img src="../img/oxu.logo.svg" alt="logo" />
+      </a>
+      <div class="items-center flex-shrink-0 flex">
+        <button onclick="window.location = '../auth/login.htm'" class="self-center px-8 py-3 font-semibold rounded bg-[#1794a0] dark:text-gray-50">Exit</button>
+      </div> 
+    </div>
+  </header>
   <main class="mx-auto text-center p-[100px]">
-    <button onclick="handleModal()" class="bg-[#16ad56] text-white border-md p-2 w-[200px] rounded-md" >Xəbər yərləşdir</button>
-    <div id="modal" onclick="handleModal()" class="fixed bg-[#000000c8] inset-0 flex justify-center items-center gap-2 dark:text-gray-800 mx-auto hidden">
+    <button onclick="handleModal()" class="bg-[#1794a0] text-white border-md p-2 w-[200px] rounded-md" >Xəbər yərləşdir</button>
+    <div id="modal" onclick="handleModal()" class="fixed bg-[#000000c8] inset-0 flex justify-center items-center gap-2 dark:text-gray-800 mx-auto hidden max-[800px]">
       <div onclick="event.stopPropagation()" class="bg-[#f9fafbf2] top-[10%] bottom-[5%] rounded-md shadow-md p-6">
         <h2 class="text-2xl font-bold w-full relative">
           Xəbəri yərləşdir
@@ -33,7 +43,7 @@
     </div>
     
     <h1 class="text-[30px] font-bold p-[30px]">Xəbərlər</h1>
-    <table class="w-[100%] mx-auto p-2">
+    <table class="max-w-[1300px] w-[100%] mx-auto p-2">
       <thead>
         <tr class="bg-[#d7dbdf] font-bold p-4 h-[70px]">
           <th>Şəkil</th>
@@ -42,15 +52,27 @@
           <th>Tarix</th>
           <th>Baxış sayı</th>
           <th>Sil</th>
-          <th>Duzəliş et</th>
+          <th>Edit</th>
         </tr>
       </thead>
-      <tbody id="xeberler">
-        
-      </tbody>
-      
+      <tbody id="xeberler"></tbody>
     </table>
-  </main>
-  <script src="../js/admin.js"></script>
+    
+    <script src="https://cdn.tiny.cloud/1/drwovk52wnl31ib3yqipahuyl1yjjbjtpx5s2ntisvs55w6c/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+<script>
+  tinymce.init({
+    selector: 'textarea',
+    plugins: [
+      'anchor', 'autolink', 'charmap', 'codesample', 'emoticons', 'image', 'link', 'lists', 'media', 'searchreplace', 'table', 'visualblocks', 'wordcount',
+      'checklist', 'mediaembed', 'casechange', 'formatpainter', 'pageembed', 'a11ychecker', 'tinymcespellchecker', 'permanentpen', 'powerpaste', 'advtable', 'advcode', 'editimage', 'advtemplate', 'ai', 'mentions', 'tinycomments', 'tableofcontents', 'footnotes', 'mergetags', 'autocorrect', 'typography', 'inlinecss', 'markdown','importword', 'exportword', 'exportpdf'
+    ],
+    toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+  });
+</script>
+</main>
+<script src="../js/validation.js"></script>
+<script src="../js/verify-token.js"></script>
+<script src="../service/api.js"></script>
+<script src="../js/admin.js"></script>
 </body>
 </html>

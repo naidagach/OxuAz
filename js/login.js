@@ -5,15 +5,7 @@ function handleLogin() {
   const emailVal = email.value
   const passVal = password.value
 
-  fetch('https://neptunbk.vercel.app/auth/login', {
-    method: 'POST',
-    headers: {'Content-type': 'application/json'}, 
-    body: JSON.stringify({
-      login: emailVal,
-      password: passVal
-    })
-  })
-  .then(res => res.json())
+  useLogin({login: emailVal, password: passVal})
   .then(info => {
     const {refresh, token, status} = info
 
